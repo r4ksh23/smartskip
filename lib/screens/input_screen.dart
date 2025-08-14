@@ -6,7 +6,6 @@ library;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'dart:ui';
 
 import 'subject_screen.dart';
 import 'calendar_screen.dart';
@@ -164,10 +163,9 @@ class _InputScreenState extends State<InputScreen> {
       appBar: AppBar(
         title: const Text('SmartSkip', style: TextStyle(color: Colors.white)),
         centerTitle: true,
-        leading: null,
-        automaticallyImplyLeading: false,
         backgroundColor: Colors.grey[900],
         elevation: 0,
+        toolbarOpacity: 1.0,
         systemOverlayStyle: SystemUiOverlayStyle.light,
         actions: [
           PopupMenuButton<String>(
@@ -279,24 +277,34 @@ class _InputScreenState extends State<InputScreen> {
                   final subject = subjects[index];
                   final isSelected = subject.subject == selectedSubject;
 
-                  return InputChip(
-                    label: Text(
-                      subject.subject,
-                      style: TextStyle(
-                        color: isSelected ? Colors.grey[900] : Colors.grey[800],
-                        fontWeight: FontWeight.w500,
-                      ),
+                  return Theme(
+                    data: Theme.of(context).copyWith(
+                      splashColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
                     ),
-                    backgroundColor: Colors.grey[300],
-                    selectedColor: Colors.grey[500],
-                    selected: isSelected,
-                    onSelected: (_) {
-                      setState(() {
-                        selectedSubject = subject.subject;
-                      });
-                    },
-                    elevation: 0,
-                    shadowColor: Colors.transparent,
+                    child: InputChip(
+                      label: Text(
+                        subject.subject,
+                        style: TextStyle(
+                          color: isSelected
+                              ? Colors.grey[900]
+                              : Colors.grey[800],
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      backgroundColor: Colors.grey[300],
+                      selectedColor: Colors.grey[500],
+                      selected: isSelected,
+                      onSelected: (_) {
+                        setState(() {
+                          selectedSubject = subject.subject;
+                        });
+                      },
+                      elevation: 0,
+                      shadowColor: Colors.transparent,
+                      surfaceTintColor: Colors.transparent,
+                    ),
                   );
                 },
               ),

@@ -1,3 +1,6 @@
+#ifndef APPLICATION_ID
+#define APPLICATION_ID "com.example.smartskip"
+#endif
 #include "my_application.h"
 
 #include <flutter_linux/flutter_linux.h>

@@ -24,8 +24,6 @@ class SmartSkipApp extends StatelessWidget {
           onSecondary: Colors.white,
           error: Colors.red,
           onError: Colors.white,
-          background: Color(0xFF1E1E1E),
-          onBackground: Colors.white,
           surface: Color(0xFF2C2C2C),
           onSurface: Colors.white,
         ),

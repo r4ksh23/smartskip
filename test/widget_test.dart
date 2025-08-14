@@ -6,10 +6,7 @@ void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build app with dummy theme toggle
     await tester.pumpWidget(
-      MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: InputScreen(onToggleTheme: () {}),
-      ),
+      MaterialApp(debugShowCheckedModeBanner: false, home: InputScreen()),
     );
 
     // Verify that our counter starts at 0 (this may not apply if you removed counters)
